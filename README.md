@@ -2,19 +2,19 @@
 
 Codex HA Assistant is a Codex plugin for maintaining Home Assistant integrations and their backing Python libraries.
 
-It packages a focused set of skills for common Home Assistant maintainer workflows:
+It packages a focused set of skills for common Home Assistant maintainer workflows. In Codex, plugin skills are namespaced as `$ha-assistant:<skill-name>`.
 
-- `$ha-plugin-init` - discover local Home Assistant repos and write local config
-- `$ha-workflow` - route broad Home Assistant maintainer tasks
-- `$ha-integration-maintainer` - maintain existing integrations
-- `$ha-backing-library` - update integration backing libraries
-- `$ha-feature` - add integration features
-- `$ha-bugfix` - fix integration or library bugs
-- `$ha-tests` - write focused integration tests
-- `$ha-coverage` - increase integration test coverage
-- `$ha-pr` - draft pull request text
-- `$ha-branch-sync` - rebase feature branches onto `upstream/dev`
-- `$ha-docs` - update `home-assistant.io` integration docs
+- `$ha-assistant:ha-plugin-init` - discover local Home Assistant repos and write local config
+- `$ha-assistant:ha-workflow` - route broad Home Assistant maintainer tasks
+- `$ha-assistant:ha-integration-maintainer` - maintain existing integrations
+- `$ha-assistant:ha-backing-library` - update integration backing libraries
+- `$ha-assistant:ha-feature` - add integration features
+- `$ha-assistant:ha-bugfix` - fix integration or library bugs
+- `$ha-assistant:ha-tests` - write focused integration tests
+- `$ha-assistant:ha-coverage` - increase integration test coverage
+- `$ha-assistant:ha-pr` - draft pull request text
+- `$ha-assistant:ha-branch-sync` - rebase feature branches onto `upstream/dev`
+- `$ha-assistant:ha-docs` - update `home-assistant.io` integration docs
 
 ## Install
 
@@ -38,7 +38,7 @@ Restart Codex after installing or changing plugin config.
 Configure local Home Assistant paths:
 
 ```text
-$ha-plugin-init configure my Home Assistant setup. My GitHub handle is jeeftor and my repos are under ~/devel/ha.
+$ha-assistant:ha-plugin-init configure my Home Assistant setup. My GitHub handle is jeeftor and my repos are under ~/devel/ha.
 ```
 
 The init skill writes personal config to:
@@ -88,6 +88,16 @@ Skill files can be validated with Codex's skill validator when available:
 ```bash
 ~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py plugins/ha-assistant/skills/ha-workflow
 ```
+
+## Invocation Names
+
+Codex prefixes plugin skills with the plugin name. Use:
+
+```text
+$ha-assistant:ha-workflow work on weatherflow_cloud
+```
+
+Plain `$ha-workflow` style names require installing the skills directly into `~/.codex/skills` instead of using this plugin package.
 
 ## Notes
 
