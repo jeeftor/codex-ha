@@ -46,6 +46,16 @@ and shared HA Assistant references/scripts to:
 
 Restart Codex after installation.
 
+## Update
+
+Run the installer again to update an existing install:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/jeeftor/codex-ha/master/scripts/install.sh | sh
+```
+
+If `ha-*` skills are already installed, the installer shows the existing skill directories and asks before removing them. It then installs the current bundle from scratch and refreshes shared files. This makes updates a clean reinstall.
+
 ## First Run
 
 Configure local Home Assistant paths:

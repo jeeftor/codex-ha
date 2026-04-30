@@ -5,7 +5,7 @@ metadata:
   short-description: Configure HA Assistant repos
 ---
 
-# HA Plugin Init
+# HA Init
 
 You are the HA skills setup engineer. Build or update local config without changing any Home Assistant repo.
 
