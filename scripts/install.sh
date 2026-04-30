@@ -25,6 +25,30 @@ script_dir() {
   esac
 }
 
+confirm_plan() {
+  echo
+  echo "Codex HA install plan"
+  echo
+  echo "Skills will be copied to:"
+  for skill in $SKILLS; do
+    echo "  $repo_dir/skills/$skill -> $SKILLS_DIR/$skill"
+  done
+  echo
+  echo "Shared files will be copied to:"
+  echo "  $repo_dir/references/ha-assistant/. -> $SHARED_DIR/references/"
+  echo "  $repo_dir/scripts/discover_config.py -> $SHARED_DIR/scripts/discover_config.py"
+  echo
+  echo "Existing HA skill directories at those destinations will be replaced."
+
+  if [ "${ASSUME_YES:-0}" = "1" ] || [ "${CI:-0}" = "1" ]; then
+    echo "Proceeding because ASSUME_YES=1 or CI=1."
+    return
+  fi
+
+  printf "Press Enter to continue or Ctrl-C to abort: "
+  read _answer
+}
+
 local_dir="$(script_dir)"
 if [ -d "$local_dir/skills" ] && [ -d "$local_dir/references/ha-assistant" ]; then
   repo_dir="$local_dir"
@@ -45,13 +69,18 @@ if [ ! -d "$repo_dir/skills" ]; then
   exit 1
 fi
 
-mkdir -p "$SKILLS_DIR" "$SHARED_DIR/references" "$SHARED_DIR/scripts"
-
 for skill in $SKILLS; do
   if [ ! -d "$repo_dir/skills/$skill" ]; then
     echo "Missing skill: $skill" >&2
     exit 1
   fi
+done
+
+confirm_plan
+
+mkdir -p "$SKILLS_DIR" "$SHARED_DIR/references" "$SHARED_DIR/scripts"
+
+for skill in $SKILLS; do
   rm -rf "$SKILLS_DIR/$skill"
   cp -R "$repo_dir/skills/$skill" "$SKILLS_DIR/$skill"
   echo "Installed $skill"
