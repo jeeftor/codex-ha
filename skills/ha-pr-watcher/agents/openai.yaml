@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA PR Watcher"
+  short_description: "Watch HA PR status"
+  default_prompt: "Inspect my Home Assistant PR and summarize comments and CI."

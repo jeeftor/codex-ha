@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA PR Writer"
+  short_description: "Write HA PR descriptions"
+  default_prompt: "Draft the initial PR description for my Home Assistant branch."

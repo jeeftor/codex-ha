@@ -12,7 +12,9 @@ It installs plain skill names:
 - `$ha-bugfix` - fix integration or library bugs
 - `$ha-tests` - write focused integration tests
 - `$ha-coverage` - increase integration test coverage
-- `$ha-pr` - draft pull request text
+- `$ha-pr` - route PR work
+- `$ha-pr-writer` - draft initial HA PR descriptions and required template fields
+- `$ha-pr-watcher` - inspect open PR comments, checks, and requested changes
 - `$ha-sync` - rebase feature branches onto `upstream/dev`
 - `$ha-docs` - update `home-assistant.io` integration docs
 

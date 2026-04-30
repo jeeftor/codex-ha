@@ -6,7 +6,7 @@ REF="${REF:-master}"
 CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 SKILLS_DIR="$CODEX_HOME/skills"
 SHARED_DIR="$CODEX_HOME/ha-assistant"
-SKILLS="ha-init ha-workflow ha-integration ha-library ha-feature ha-bugfix ha-tests ha-coverage ha-pr ha-sync ha-docs"
+SKILLS="ha-init ha-workflow ha-integration ha-library ha-feature ha-bugfix ha-tests ha-coverage ha-pr ha-pr-writer ha-pr-watcher ha-sync ha-docs"
 
 repo_dir=""
 tmp_dir=""

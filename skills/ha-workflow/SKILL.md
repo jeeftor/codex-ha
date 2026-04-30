@@ -20,7 +20,9 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md`, `${CODEX_H
 - Bug report or regression: `$ha-bugfix`
 - Tests for changed behavior: `$ha-tests`
 - Coverage increase: `$ha-coverage`
-- PR text: `$ha-pr`
+- PR coordination: `$ha-pr`
+- Initial PR writing: `$ha-pr-writer`
+- Open PR monitoring, comments, or CI: `$ha-pr-watcher`
 - Branch update/rebase: `$ha-sync`
 - End-user docs: `$ha-docs`
 
