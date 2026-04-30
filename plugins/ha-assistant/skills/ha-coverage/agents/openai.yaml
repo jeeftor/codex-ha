@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Coverage"
+  short_description: "Increase test coverage"
+  default_prompt: "Increase coverage for an HA integration."

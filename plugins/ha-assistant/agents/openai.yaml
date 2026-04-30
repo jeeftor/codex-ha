@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Assistant"
+  short_description: "Maintain Home Assistant integrations"
+  default_prompt: "Work on a Home Assistant integration."

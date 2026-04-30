@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Bugfix"
+  short_description: "Fix HA integration bugs"
+  default_prompt: "Fix a bug in an HA integration."

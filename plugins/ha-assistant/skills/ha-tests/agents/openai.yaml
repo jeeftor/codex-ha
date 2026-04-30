@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Tests"
+  short_description: "Write HA integration tests"
+  default_prompt: "Write tests for an HA integration change."

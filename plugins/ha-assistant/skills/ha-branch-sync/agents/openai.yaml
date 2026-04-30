@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Branch Sync"
+  short_description: "Rebase HA branches"
+  default_prompt: "Bring my HA feature branch up to date."

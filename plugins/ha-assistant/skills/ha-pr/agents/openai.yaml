@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA PR"
+  short_description: "Draft HA pull requests"
+  default_prompt: "Draft the PR for my HA integration branch."

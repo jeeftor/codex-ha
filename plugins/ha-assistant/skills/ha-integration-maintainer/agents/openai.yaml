@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Integration Maintainer"
+  short_description: "Maintain HA integrations"
+  default_prompt: "Update an existing Home Assistant integration."

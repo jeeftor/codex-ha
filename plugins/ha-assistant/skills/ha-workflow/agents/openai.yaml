@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Workflow"
+  short_description: "Route HA maintainer work"
+  default_prompt: "Work on a Home Assistant integration."

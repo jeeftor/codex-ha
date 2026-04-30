@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Feature"
+  short_description: "Add integration features"
+  default_prompt: "Add a feature to an existing HA integration."

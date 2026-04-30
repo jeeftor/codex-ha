@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Plugin Init"
+  short_description: "Configure HA Assistant"
+  default_prompt: "Configure my Home Assistant repos for HA Assistant."

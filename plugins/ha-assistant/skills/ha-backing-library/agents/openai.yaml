@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Backing Library"
+  short_description: "Maintain integration libraries"
+  default_prompt: "Update the backing library for an HA integration."

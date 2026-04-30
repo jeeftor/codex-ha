@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Docs"
+  short_description: "Write HA docs"
+  default_prompt: "Update docs for an HA integration."
