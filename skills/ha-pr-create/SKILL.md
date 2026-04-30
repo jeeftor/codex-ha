@@ -1,6 +1,6 @@
 ---
 name: ha-pr-create
-description: Create Home Assistant PRs by validating branch state, committing staged work, pushing to a fork, and running gh pr create.
+description: Commit, push, and create HA PRs.
 metadata:
   short-description: Create HA PRs
 ---
@@ -30,4 +30,3 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md` and `${CODE
 9. End with `What to do next`: use `$ha-pr-watcher` to monitor CI, review comments, and branch freshness.
 
 Prefer `gh pr create --body-file <file>` over `--fill` so the HA template text from `$ha-pr-writer` is preserved.
-

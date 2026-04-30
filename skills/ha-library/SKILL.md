@@ -1,6 +1,6 @@
 ---
 name: ha-library
-description: Work on Python backing libraries for HA integrations, including API fixes, tests, releases, and Core requirement updates.
+description: Maintain Python libraries behind HA integrations.
 metadata:
   short-description: Maintain HA backing libraries
 ---

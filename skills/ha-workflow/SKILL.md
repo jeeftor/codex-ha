@@ -1,6 +1,6 @@
 ---
 name: ha-workflow
-description: Route broad Home Assistant maintainer work across integrations, libraries, docs, tests, coverage, PRs, sync, and review feedback.
+description: Route Home Assistant maintainer work.
 metadata:
   short-description: Route HA maintainer work
 ---

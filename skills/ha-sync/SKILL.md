@@ -1,6 +1,6 @@
 ---
 name: ha-sync
-description: Sync Home Assistant feature branches with upstream/dev, including fetch, rebase, conflict triage, and environment drift checks.
+description: Rebase HA branches onto upstream/dev.
 metadata:
   short-description: Sync HA branches
 ---

@@ -1,6 +1,6 @@
 ---
 name: ha-pr-writer
-description: Draft Home Assistant Core PR descriptions, including template type, dependency upgrade diffs, changelog links, tests, and docs.
+description: Draft HA Core PR descriptions.
 metadata:
   short-description: Write HA PR descriptions
 ---

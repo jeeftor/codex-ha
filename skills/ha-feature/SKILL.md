@@ -1,6 +1,6 @@
 ---
 name: ha-feature
-description: Add features to existing Home Assistant integrations, coordinating Core code, tests, docs, and backing libraries.
+description: Add features to existing HA integrations.
 metadata:
   short-description: Add HA integration features
 ---

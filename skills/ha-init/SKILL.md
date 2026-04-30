@@ -1,6 +1,6 @@
 ---
 name: ha-init
-description: Configure HA skills by discovering local Core, docs, and backing-library repos and writing ~/.codex/ha-assistant/config.yaml.
+description: Configure local HA skill repo paths.
 metadata:
   short-description: Configure HA Assistant repos
 ---

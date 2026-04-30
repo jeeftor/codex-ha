@@ -1,6 +1,6 @@
 ---
 name: ha-docs
-description: Write Home Assistant end-user docs in home-assistant.io for setup, entities, services, troubleshooting, and Core behavior changes.
+description: Write Home Assistant integration docs.
 metadata:
   short-description: Write HA docs
 ---

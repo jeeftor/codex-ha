@@ -1,6 +1,6 @@
 ---
 name: ha-pr-watcher
-description: Inspect existing Home Assistant PRs for CI, review comments, unresolved threads, maintainer feedback, stale branches, and fixes.
+description: Watch HA PR CI, comments, and reviews.
 metadata:
   short-description: Watch HA PRs
 ---

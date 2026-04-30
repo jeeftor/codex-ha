@@ -65,6 +65,21 @@ Keep branch slugs lowercase, hyphen-separated, and concise. Prefer issue numbers
 
 Before creating a branch, inspect the current branch and dirty state. Do not rename, delete, or switch away from a branch with user changes unless the user explicitly asks. If the current branch does not follow Gitflow naming, mention the preferred name and ask before renaming.
 
+## Parallel delegation
+
+Use subagents only when the user explicitly asks for delegation, subagents, or parallel work. Give each subagent a target skill and disjoint file ownership.
+
+Good parallel tasks:
+
+- `$ha-tests` for `tests/components/<domain>` while the main agent works on Core implementation.
+- `$ha-docs` in the separate docs repo while Core tests run or code is reviewed.
+- `$ha-library` in a separate backing-library repo when the HA Core change can proceed against a clear API contract.
+- `$ha-pr-watcher` investigation split between CI failures and review comments for an existing PR.
+
+Keep these local and serialized unless the user explicitly asks otherwise: branch renames, rebases, commits, pushes, release/tag publishing, and `$ha-pr-create`.
+
+When subagents return, integrate their results before suggesting `$ha-pr-writer` or `$ha-pr-create`.
+
 ## Verification
 
 Prefer repo-native checks. For HA Core, targeted checks are usually better than full-suite checks:

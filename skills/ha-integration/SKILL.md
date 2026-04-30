@@ -1,6 +1,6 @@
 ---
 name: ha-integration
-description: Maintain Home Assistant Core integrations under homeassistant/components, including entities, config entries, manifests, tests, and libraries.
+description: Maintain existing HA Core integrations.
 metadata:
   short-description: Maintain HA integrations
 ---

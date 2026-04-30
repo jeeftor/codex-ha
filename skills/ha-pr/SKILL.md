@@ -1,6 +1,6 @@
 ---
 name: ha-pr
-description: Route Home Assistant PR work for drafting, creating, monitoring, review comments, CI failures, and dependency bumps.
+description: Route Home Assistant PR work.
 metadata:
   short-description: Route HA PR work
 ---
