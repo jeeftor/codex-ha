@@ -1,6 +1,6 @@
 ---
 name: ha-tests
-description: Write or update Home Assistant integration tests. Use for tests under tests/components, mocked config entries, config flows, entity state assertions, unload/reload, diagnostics, repairs, services/actions, and backing-library behavior mocks.
+description: Write Home Assistant integration tests for config flows, entities, unload/reload, diagnostics, repairs, services, and mocks.
 metadata:
   short-description: Write HA integration tests
 ---

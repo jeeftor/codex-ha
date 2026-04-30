@@ -16,6 +16,8 @@ git rebase upstream/dev
 
 For backing libraries, use the repo's configured upstream/default branch instead of assuming `upstream/dev`.
 
+If the current branch is not Gitflow-named, do not rename it during sync unless the user explicitly asks. Report the preferred `feature/`, `bugfix/`, or `hotfix/` branch name separately.
+
 ## Conflict handling
 
 - If rebase conflicts, stop after reporting conflicted files.

@@ -1,6 +1,6 @@
 ---
 name: ha-library
-description: Work on Python backing libraries used by Home Assistant integrations. Use when a bug or feature belongs in an external library, when updating library tests, release notes, versions, or Home Assistant manifest requirements.
+description: Work on Python backing libraries for HA integrations, including API fixes, tests, releases, and Core requirement updates.
 metadata:
   short-description: Maintain HA backing libraries
 ---

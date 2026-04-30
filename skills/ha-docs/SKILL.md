@@ -1,6 +1,6 @@
 ---
 name: ha-docs
-description: Write or update Home Assistant end-user documentation in the separate home-assistant.io repo. Use for integration setup docs, supported devices/entities, services/actions, troubleshooting, examples, docs PR targeting, or syncing docs with HA Core behavior.
+description: Write Home Assistant end-user docs in home-assistant.io for setup, entities, services, troubleshooting, and Core behavior changes.
 metadata:
   short-description: Write HA docs
 ---

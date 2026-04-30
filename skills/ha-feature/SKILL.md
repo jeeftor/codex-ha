@@ -1,6 +1,6 @@
 ---
 name: ha-feature
-description: Add a new feature to an existing Home Assistant integration, often spanning HA Core, tests, docs, and a backing Python library. Use for new entities, attributes, services/actions, config options, diagnostics, repairs, or supported device capabilities.
+description: Add features to existing Home Assistant integrations, coordinating Core code, tests, docs, and backing libraries.
 metadata:
   short-description: Add HA integration features
 ---
@@ -19,6 +19,7 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md`.
 4. If the library lacks support, update the library first or ask if the boundary is unclear.
 5. Implement HA Core changes using existing integration patterns.
 6. Add targeted tests for setup, entities, states, actions, or options touched by the feature.
-7. Note any docs or PR text follow-up.
+7. Run targeted verification and repo hooks when practical; if hooks fail, report the failing hook before suggesting PR work.
+8. End with the relevant next skill: `$ha-tests`, `$ha-coverage`, `$ha-docs`, `$ha-library`, `$ha-sync`, `$ha-pr-writer`, or no follow-up.
 
 Avoid broad quality-scale upgrades unless required for the feature.

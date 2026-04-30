@@ -1,6 +1,6 @@
 ---
 name: ha-bugfix
-description: Fix bugs in Home Assistant integrations or their backing libraries. Use for reported issues, regressions, tracebacks, broken config flows, entity state errors, failed unload/reload, API failures, or flaky integration behavior.
+description: Fix Home Assistant integration or backing-library bugs, including tracebacks, config flows, entity states, reloads, and API failures.
 metadata:
   short-description: Fix HA integration bugs
 ---

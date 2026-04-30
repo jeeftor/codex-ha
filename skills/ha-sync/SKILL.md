@@ -1,6 +1,6 @@
 ---
 name: ha-sync
-description: Safely bring a Home Assistant feature branch up to date. Use for git fetch upstream, rebase onto upstream/dev, conflict triage, branch status checks, or environment drift after switching/rebasing branches.
+description: Sync Home Assistant feature branches with upstream/dev, including fetch, rebase, conflict triage, and environment drift checks.
 metadata:
   short-description: Sync HA branches
 ---

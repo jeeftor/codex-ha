@@ -1,6 +1,6 @@
 ---
 name: ha-coverage
-description: Increase Home Assistant integration test coverage without changing behavior. Use when the user asks to improve coverage, find missing tests, reach a coverage threshold, or add tests for untested branches in Home Assistant integration code.
+description: Increase Home Assistant integration coverage by finding missing tests and adding behavior-preserving test cases.
 metadata:
   short-description: Increase HA coverage
 ---

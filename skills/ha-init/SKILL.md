@@ -1,6 +1,6 @@
 ---
 name: ha-init
-description: Initialize or update HA Assistant local configuration. Use when the user wants to configure the Home Assistant skill bundle, find local Home Assistant Core/docs/backing-library repos, map maintained integrations, or create ~/.codex/ha-assistant/config.yaml.
+description: Configure HA skills by discovering local Core, docs, and backing-library repos and writing ~/.codex/ha-assistant/config.yaml.
 metadata:
   short-description: Configure HA Assistant repos
 ---

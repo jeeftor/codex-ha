@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA PR Create"
+  short_description: "Commit, push, and open HA PRs"
+  default_prompt: "Create a Home Assistant PR from my current branch using the drafted PR body."

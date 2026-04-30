@@ -1,6 +1,6 @@
 ---
 name: ha-pr-watcher
-description: Inspect and respond to existing Home Assistant pull requests. Use for open PR status, review comments, requested changes, failing CI, unresolved review threads, stale branch status, maintainer feedback, or preparing follow-up fixes for an HA PR.
+description: Inspect existing Home Assistant PRs for CI, review comments, unresolved threads, maintainer feedback, stale branches, and fixes.
 metadata:
   short-description: Watch HA PRs
 ---

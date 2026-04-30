@@ -14,6 +14,7 @@ It installs plain skill names:
 - `$ha-coverage` - increase integration test coverage
 - `$ha-pr` - route PR work
 - `$ha-pr-writer` - draft initial HA PR descriptions and required template fields
+- `$ha-pr-create` - commit staged changes, push a branch, and create a GitHub PR
 - `$ha-pr-watcher` - inspect open PR comments, checks, and requested changes
 - `$ha-sync` - rebase feature branches onto `upstream/dev`
 - `$ha-docs` - update `home-assistant.io` integration docs

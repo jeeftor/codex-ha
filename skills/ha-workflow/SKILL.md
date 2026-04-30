@@ -1,6 +1,6 @@
 ---
 name: ha-workflow
-description: Primary Home Assistant maintainer router. Use for broad HA requests, when the right HA skill is unclear, or when work may span Home Assistant Core, backing libraries, docs, tests, coverage, PRs, branch sync, or review feedback.
+description: Route broad Home Assistant maintainer work across integrations, libraries, docs, tests, coverage, PRs, sync, and review feedback.
 metadata:
   short-description: Route HA maintainer work
 ---
@@ -22,6 +22,7 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md`, `${CODEX_H
 - Coverage increase: `$ha-coverage`
 - PR coordination: `$ha-pr`
 - Initial PR writing: `$ha-pr-writer`
+- PR creation from a ready branch: `$ha-pr-create`
 - Open PR monitoring, comments, or CI: `$ha-pr-watcher`
 - Branch update/rebase: `$ha-sync`
 - End-user docs: `$ha-docs`
