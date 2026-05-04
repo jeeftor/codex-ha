@@ -40,14 +40,15 @@ If the diff or changelog link is unavailable, stop and ask for it or state the e
 
 1. Inspect git diff, changed files, commits, integration manifest requirements, and tests run.
 2. Identify integration domain(s), docs impact, breaking-change impact, dependency changes, and verification.
-3. If local tests, lint, or commit hooks are failing, include that status and do not imply the PR is ready.
-4. Draft the PR using the HA template sections:
+3. Normalize verification commands for the PR body: remove local wrappers and machine-specific aliases such as `rtk`, and show the repo-native command a reviewer can run.
+4. If local tests, lint, or commit hooks are failing, include that status and do not imply the PR is ready.
+5. Draft the PR using the HA template sections:
    - Breaking change
    - Proposed change
    - Type of change
    - Additional information
    - Checklist notes
-5. Do not invent verification, issue links, docs PRs, or changelog links.
-6. End with `What to do next`: use `$ha-pr-create` to commit, push, and open the PR; if tests/hooks are failing, fix those first.
+6. Do not invent verification, issue links, docs PRs, or changelog links.
+7. End with `What to do next`: use `$ha-pr-create` to commit, push, and open the PR; if tests/hooks are failing, fix those first.
 
 Keep reviewer context factual and focused on behavior.

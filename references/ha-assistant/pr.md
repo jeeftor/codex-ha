@@ -16,6 +16,16 @@ Home Assistant Core PRs must select exactly one valid item from `.github/PULL_RE
 
 If multiple types appear valid, choose the dominant PR purpose or recommend splitting the PR.
 
+## Verification commands
+
+PR descriptions should show commands that reviewers can run in the repository. Do not include local wrapper commands or machine-specific aliases such as `rtk`.
+
+When a check was run through a local wrapper, report the repo-native command instead:
+
+- `rtk uv run pytest -q tests/components/openaq` -> `uv run pytest -q tests/components/openaq`
+- `rtk uv run python -m script.hassfest --integration-path homeassistant/components/openaq` -> `uv run python -m script.hassfest --integration-path homeassistant/components/openaq`
+- `rtk prek run --hook-stage pre-commit` -> `prek run --hook-stage pre-commit`
+
 ## Dependency upgrades
 
 Dependency upgrade PRs require:
