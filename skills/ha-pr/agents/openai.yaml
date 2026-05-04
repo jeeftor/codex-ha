@@ -1,4 +1,4 @@
 interface:
   display_name: "HA PR"
-  short_description: "Draft HA pull requests"
-  default_prompt: "Draft the PR for my HA integration branch."
+  short_description: "Route HA PR workflows"
+  default_prompt: "Use $ha-pr to route my Home Assistant PR work."

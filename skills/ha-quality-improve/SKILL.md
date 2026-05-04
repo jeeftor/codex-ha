@@ -1,6 +1,6 @@
 ---
 name: ha-quality-improve
-description: Improve a Home Assistant integration toward a quality scale tier using audit evidence, focused code, docs, and tests.
+description: Improve a Home Assistant integration toward bronze, silver, gold, or platinum quality scale tiers using audit evidence, quality_scale.yaml, manifest quality_scale, hassfest quality scale, focused code, docs, and tests.
 metadata:
   short-description: Improve HA quality scale tier
 ---

@@ -1,6 +1,6 @@
 ---
 name: ha-quality
-description: Route broad Home Assistant integration quality scale assessment, validation, and improvement requests.
+description: Route Home Assistant integration quality scale work including bronze, silver, gold, platinum, quality_scale.yaml, manifest quality_scale, hassfest quality scale, assessment, validation, and improvement requests.
 metadata:
   short-description: Route HA quality scale work
 ---

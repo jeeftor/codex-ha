@@ -1,6 +1,6 @@
 ---
 name: ha-quality-audit
-description: Audit a Home Assistant integration against the current integration quality scale rules without editing files.
+description: Audit a Home Assistant integration against quality scale rules for bronze, silver, gold, platinum, quality_scale.yaml, manifest quality_scale, and hassfest quality scale consistency without editing files.
 metadata:
   short-description: Audit HA quality scale evidence
 ---
@@ -35,7 +35,25 @@ Use the Home Assistant quality scale docs as the source of truth:
 
 ## Report Format
 
-Group findings by tier and use checklist rows:
+Use this exact section order:
+
+1. `Summary`
+2. `Hassfest`
+3. `Manifest`
+4. `quality_scale.yaml`
+5. `Rules by tier`
+6. `Blocking gaps`
+7. `Next smallest PR`
+
+`Summary` should name the integration, current tier, target tier, and overall result.
+
+`Hassfest` should state whether `script/hassfest/quality_scale.py`, `manifest.json`, and `quality_scale.yaml` agree for the integration. Include stale exception-list entries or missing required entries.
+
+`Manifest` should state the current `manifest.json` `quality_scale`, whether it can be kept or raised, and any codeowner or integration-type issue that affects the tier.
+
+`quality_scale.yaml` should state whether the file exists, uses accepted rule ids and status syntax, and contains unsupported or stale entries.
+
+`Rules by tier` should group findings by tier and use checklist rows:
 
 ```text
 - [status] `rule-id` - summary
@@ -45,7 +63,9 @@ Group findings by tier and use checklist rows:
 
 Use `uncertain` when the evidence requires hardware, credentials, external brands assets, or maintainer judgment that cannot be verified locally.
 
-Include a short `Hassfest` section that states whether `script/hassfest/quality_scale.py`, `manifest.json`, and `quality_scale.yaml` agree for the integration.
+`Blocking gaps` should list only missing or uncertain items that block the current or target tier.
+
+`Next smallest PR` should propose the smallest reviewable follow-up, or say no follow-up is needed.
 
 ## Delegation
 

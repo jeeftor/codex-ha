@@ -28,7 +28,8 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md` and `${CODE
 7. Review HA Core changes against `.github/copilot-instructions.md`; fix obvious issues or document remaining likely Copilot concerns.
 8. Commit staged changes with a concise HA-style message. Ask for the commit message if the summary is ambiguous.
 9. Push the branch to the user's fork, usually `origin`, setting upstream when needed.
-10. Create the PR with `gh pr create`, targeting Home Assistant Core `dev` unless the user specifies another base.
-11. End with `What to do next`: use `$ha-pr-watcher` to monitor CI, review comments, and branch freshness.
+10. Create the PR as a draft with `gh pr create --draft`, targeting Home Assistant Core `dev` unless the user specifies another base. Do not mark it ready for review; the user will manually move it out of draft.
+11. Verify the PR URL and draft state with `gh pr view` or equivalent before saying the PR exists. If verification fails or times out, report the push status and say that PR existence was not confirmed.
+12. End with `What to do next`: use `$ha-pr-watcher` to monitor CI, review comments, and branch freshness.
 
 Prefer `gh pr create --body-file <file>` over `--fill` so the HA template text from `$ha-pr-writer` is preserved.
