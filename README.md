@@ -12,6 +12,9 @@ It installs plain skill names:
 - `$ha-bugfix` - fix integration or library bugs
 - `$ha-tests` - write focused integration tests
 - `$ha-coverage` - increase integration test coverage
+- `$ha-quality` - route quality scale assessment and improvement work
+- `$ha-quality-audit` - audit quality scale rules and evidence
+- `$ha-quality-improve` - close quality scale gaps with focused implementation, docs, and tests
 - `$ha-pr` - route PR work
 - `$ha-pr-writer` - draft initial HA PR descriptions and required template fields
 - `$ha-pr-create` - commit staged changes, push a branch, and create a GitHub PR
@@ -129,6 +132,7 @@ Repository layout:
 skills/
   ha-init/
   ha-workflow/
+  ha-quality/
   ...
 references/ha-assistant/
 scripts/
@@ -139,6 +143,9 @@ Validate before pushing:
 ```bash
 python3 -m py_compile scripts/discover_config.py
 ~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-workflow
+~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-quality
+~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-quality-audit
+~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-quality-improve
 ```
 
 ## Notes

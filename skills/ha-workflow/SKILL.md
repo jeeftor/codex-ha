@@ -20,6 +20,7 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md`, `${CODEX_H
 - Bug report or regression: `$ha-bugfix`
 - Tests for changed behavior: `$ha-tests`
 - Coverage increase: `$ha-coverage`
+- Quality scale assessment, `quality_scale.yaml`, or target-tier validation: `$ha-quality`
 - PR coordination: `$ha-pr`
 - Initial PR writing: `$ha-pr-writer`
 - PR creation from a ready branch: `$ha-pr-create`

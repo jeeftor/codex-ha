@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Quality Router"
+  short_description: "Route quality scale workflows"
+  default_prompt: "Use $ha-quality to route an HA integration quality scale request."

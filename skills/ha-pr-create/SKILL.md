@@ -24,9 +24,10 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md` and `${CODE
 3. Confirm the staged files are the intended PR contents. If relevant unstaged or untracked files exist, ask whether to include them before staging.
 4. Verify the PR title/body is available from the current conversation, a user-provided file, or a generated temp file. If not, stop and use `$ha-pr-writer` first.
 5. Run or confirm the narrowest practical tests, lint, and hook checks. Stop on failures and make cleanup the next step.
-6. Commit staged changes with a concise HA-style message. Ask for the commit message if the summary is ambiguous.
-7. Push the branch to the user's fork, usually `origin`, setting upstream when needed.
-8. Create the PR with `gh pr create`, targeting Home Assistant Core `dev` unless the user specifies another base.
-9. End with `What to do next`: use `$ha-pr-watcher` to monitor CI, review comments, and branch freshness.
+6. Review HA Core changes against `.github/copilot-instructions.md`; fix obvious issues or document remaining likely Copilot concerns.
+7. Commit staged changes with a concise HA-style message. Ask for the commit message if the summary is ambiguous.
+8. Push the branch to the user's fork, usually `origin`, setting upstream when needed.
+9. Create the PR with `gh pr create`, targeting Home Assistant Core `dev` unless the user specifies another base.
+10. End with `What to do next`: use `$ha-pr-watcher` to monitor CI, review comments, and branch freshness.
 
 Prefer `gh pr create --body-file <file>` over `--fill` so the HA template text from `$ha-pr-writer` is preserved.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Quality Audit"
+  short_description: "Audit HA quality scale evidence"
+  default_prompt: "Use $ha-quality-audit to verify an HA integration against the quality scale."

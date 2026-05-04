@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA Quality Improve"
+  short_description: "Improve HA quality scale tier"
+  default_prompt: "Use $ha-quality-improve to close quality scale gaps for an HA integration."

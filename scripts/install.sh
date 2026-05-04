@@ -7,7 +7,7 @@ CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 SKILLS_DIR="$CODEX_HOME/skills"
 SHARED_DIR="$CODEX_HOME/ha-assistant"
 MANIFEST="$SHARED_DIR/installed-skills.txt"
-SKILLS="ha-init ha-workflow ha-integration ha-library ha-feature ha-bugfix ha-tests ha-coverage ha-pr ha-pr-writer ha-pr-create ha-pr-watcher ha-sync ha-docs"
+SKILLS="ha-init ha-workflow ha-integration ha-library ha-feature ha-bugfix ha-tests ha-coverage ha-quality ha-quality-audit ha-quality-improve ha-pr ha-pr-writer ha-pr-create ha-pr-watcher ha-sync ha-docs"
 
 repo_dir=""
 tmp_dir=""

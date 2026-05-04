@@ -8,6 +8,7 @@ Before editing, read local project instructions that apply to the files you will
 
 1. `AGENTS.md`
 2. `CLAUDE.md`
+3. `.github/copilot-instructions.md` for HA Core changes
 
 Search from the current repo root and the nearest parent directories for the files being edited. Repeat for backing library and docs repos when those repos are touched. Treat local repo instructions as authoritative for that repo.
 
@@ -64,6 +65,20 @@ Use Gitflow-style branch names for new local work branches:
 Keep branch slugs lowercase, hyphen-separated, and concise. Prefer issue numbers when available, for example `feature/153254-weatherflow-cloud-sensor`.
 
 Before creating a branch, inspect the current branch and dirty state. Do not rename, delete, or switch away from a branch with user changes unless the user explicitly asks. If the current branch does not follow Gitflow naming, mention the preferred name and ask before renaming.
+
+## Copilot pre-review
+
+For HA Core changes, read `.github/copilot-instructions.md` before calling work PR-ready or before `$ha-pr-create` commits and pushes. Do a short self-review against those instructions and fix obvious issues first.
+
+Current high-value checks:
+
+- Test function parameters should have concrete type annotations, not `Any`.
+- Do not flag Python 3.14 `except TypeA, TypeB` syntax as an issue.
+- Prefer examples from Platinum or Gold integrations when choosing patterns.
+- Do not add defensive checks for service/action fields already validated by HA schemas or entity filters.
+- Prefer direct dict key access when validation guarantees the key exists.
+
+If a potential Copilot concern remains, include it in the final summary before PR creation.
 
 ## Parallel delegation
 
