@@ -2,6 +2,14 @@
 
 Use for Home Assistant Core PR writing and PR monitoring.
 
+## Template preservation
+
+Treat `.github/PULL_REQUEST_TEMPLATE.md` as the source template for PR bodies. Preserve every original section, checklist item, unchecked checkbox, comment, placeholder, and blank section unless the user explicitly asks for a short draft.
+
+Add PR-specific content under the matching template headings or append notes inside the relevant section. Do not delete template text, collapse the body to a summary-only draft, or replace the template with generated prose.
+
+When updating an existing PR body, compare against the current HA Core template if practical. If the body is missing original template content, restore the missing template structure and keep any existing user-authored PR content.
+
 ## Type of change
 
 Home Assistant Core PRs must select exactly one valid item from `.github/PULL_REQUEST_TEMPLATE.md` under `## Type of change`:

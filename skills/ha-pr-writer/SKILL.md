@@ -14,8 +14,9 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md` and `${CODE
 ## Required Template Rules
 
 1. Read `core/.github/PULL_REQUEST_TEMPLATE.md` or `.github/PULL_REQUEST_TEMPLATE.md` from the current HA Core checkout before drafting.
-2. Preserve the template structure unless the user asks for a short draft.
-3. In `## Type of change`, check exactly one valid box from the template:
+2. Preserve every original template section, checklist item, unchecked checkbox, comment, placeholder, and blank section unless the user explicitly asks for a short draft.
+3. Add PR-specific content under the matching template headings; do not delete template text, collapse the body to a summary-only draft, or replace the template with generated prose.
+4. In `## Type of change`, check exactly one valid box from the template:
    - `Dependency upgrade`
    - `Bugfix (non-breaking change which fixes an issue)`
    - `New integration (thank you!)`
@@ -23,7 +24,7 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md` and `${CODE
    - `Deprecation (breaking change to happen in the future)`
    - `Breaking change (fix/feature causing existing functionality to break)`
    - `Code quality improvements to existing code or addition of tests`
-4. If more than one type seems valid, choose the dominant PR purpose or recommend splitting the PR. Do not check multiple boxes.
+5. If more than one type seems valid, choose the dominant PR purpose or recommend splitting the PR. Do not check multiple boxes.
 
 ## Dependency Upgrades
 
@@ -40,9 +41,9 @@ If the diff or changelog link is unavailable, stop and ask for it or state the e
 
 1. Inspect git diff, changed files, commits, integration manifest requirements, and tests run.
 2. Identify integration domain(s), docs impact, breaking-change impact, dependency changes, and verification.
-3. Normalize verification commands for the PR body: remove local wrappers and machine-specific aliases such as `rtk`, and show the repo-native command a reviewer can run.
+3. Normalize filled-in verification commands for the PR body: replace local wrappers and machine-specific aliases such as `rtk` with repo-native commands a reviewer can run.
 4. If local tests, lint, or commit hooks are failing, include that status and do not imply the PR is ready.
-5. Draft the PR using the HA template sections:
+5. Draft the PR by filling or appending to the HA template sections without deleting original template content:
    - Breaking change
    - Proposed change
    - Type of change

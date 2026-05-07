@@ -22,8 +22,9 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md` and `${CODE
    - Documentation gaps
    - Dependency or generated-file issues
    - Stale branch/rebase needed
-4. Apply only mechanical or clearly requested fixes. Ask before behavior changes, risky rebases, or ambiguous maintainer feedback.
-5. Summarize what changed, what remains blocked, and which checks should be rerun.
+4. If updating a PR body while handling feedback, preserve the full original HA Core PR template and only add to it unless the user explicitly requests a short draft.
+5. Apply only mechanical or clearly requested fixes. Ask before behavior changes, risky rebases, or ambiguous maintainer feedback.
+6. Summarize what changed, what remains blocked, and which checks should be rerun.
 
 Prefer `gh pr view`, `gh pr checks`, and `gh pr diff` when available. If GitHub auth or network is unavailable, report the blocker and use local branch/diff context.
 

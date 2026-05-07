@@ -46,6 +46,7 @@ Goal: get enough context fast, then act.
 
 - Keep changes surgical and integration-scoped.
 - Match existing integration patterns before inventing new structure.
+- When unsure about HA concepts, lifecycle, entity modeling, config flows, diagnostics, repairs, or tests, inspect an existing Platinum integration first, then Gold if needed, and adapt its pattern instead of guessing.
 - Prefer fixing the backing library when the bug belongs there.
 - Preserve user changes and unrelated dirty work.
 - Do not alter global tooling, global TLS settings, or Nix setup.
@@ -74,7 +75,7 @@ Current high-value checks:
 
 - Test function parameters should have concrete type annotations, not `Any`.
 - Do not flag Python 3.14 `except TypeA, TypeB` syntax as an issue.
-- Prefer examples from Platinum or Gold integrations when choosing patterns.
+- Prefer examples from Platinum or Gold integrations when choosing patterns, especially when the local integration does not make the expected HA concept clear.
 - Do not add defensive checks for service/action fields already validated by HA schemas or entity filters.
 - Prefer direct dict key access when validation guarantees the key exists.
 
@@ -83,6 +84,8 @@ If a potential Copilot concern remains, include it in the final summary before P
 ## Parallel delegation
 
 Use subagents only when the user explicitly asks for delegation, subagents, or parallel work. Give each subagent a target skill and disjoint file ownership.
+
+When parallel agents need to work in the same git repository, prefer separate git worktrees with separate feature branches. Do not run parallel agents in the same working tree when they may edit files, tests, or branch state. Keep each worktree's branch, files, commits, rebases, and pushes isolated until the main agent integrates the results.
 
 Good parallel tasks:
 
@@ -117,6 +120,7 @@ End every completed HA task with a `What to do next` section when there is a val
 - Use `$ha-docs` when user-visible setup, entities, actions, options, troubleshooting, or compatibility changed.
 - Use `$ha-library` when the backing library still needs a release, version bump, or API follow-up.
 - Use `$ha-sync` when the branch is stale or a rebase onto `upstream/dev` is needed.
+- Before pushing commits for a new or existing HA Core PR, ask whether to run `$ha-copilot-review` when HA Core files changed.
 - Use `$ha-pr-writer` only when tests, lint, and hooks are passing or the remaining failures are explicitly documented.
 - Use `$ha-pr-create` after `$ha-pr-writer` when staged changes and PR text are ready to commit, push, and open.
 - Use `$ha-pr-watcher` after a PR exists and needs CI, comments, or review follow-up.
