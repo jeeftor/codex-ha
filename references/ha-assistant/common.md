@@ -48,6 +48,8 @@ Goal: get enough context fast, then act.
 - Match existing integration patterns before inventing new structure.
 - When unsure about HA concepts, lifecycle, entity modeling, config flows, diagnostics, repairs, or tests, inspect an existing Platinum integration first, then Gold if needed, and adapt its pattern instead of guessing.
 - Prefer fixing the backing library when the bug belongs there.
+- Preserve backing-library domain types at the HA boundary. If the library exposes a `Location`, `Device`, `Reading`, or similar model, use that type instead of `object`, `Any`, raw JSON dictionaries, or a parallel HA-only abstraction.
+- For entity descriptions, omit `translation_key` when the entity name is the same as its `device_class`; Home Assistant can use the device class translation as the fallback name.
 - Preserve user changes and unrelated dirty work.
 - Do not alter global tooling, global TLS settings, or Nix setup.
 - For new integrations, keep the first PR small and Bronze-oriented.
@@ -78,6 +80,7 @@ Current high-value checks:
 - Prefer examples from Platinum or Gold integrations when choosing patterns, especially when the local integration does not make the expected HA concept clear.
 - Do not add defensive checks for service/action fields already validated by HA schemas or entity filters.
 - Prefer direct dict key access when validation guarantees the key exists.
+- Omit redundant entity `translation_key` values when the entity's name matches its `device_class` fallback translation.
 
 If a potential Copilot concern remains, include it in the final summary before PR creation.
 

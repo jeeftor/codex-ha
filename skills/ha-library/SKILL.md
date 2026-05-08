@@ -20,4 +20,10 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md` and `${CODE
 5. Run the library's native tests/lint/type checks.
 6. If HA must consume the change, note whether a release/version bump and `manifest.json` requirement update are needed.
 
+## API Modeling
+
+- Prefer library-owned domain types on public APIs and tests. If the library defines `Location`, `Device`, `Reading`, or a similar model, use that type instead of `object`, `Any`, raw JSON dictionaries, or a parallel HA-only abstraction.
+- Parse provider JSON at the library boundary into existing typed models, or add the smallest library-owned model when the concept belongs in the backing library.
+- Keep HA Core consuming the library's typed API directly; do not duplicate library models in the integration unless HA owns a distinct entity or config concept.
+
 Do not publish, tag, or push releases unless the user explicitly asks.
