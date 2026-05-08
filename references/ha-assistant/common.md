@@ -37,6 +37,7 @@ Goal: get enough context fast, then act.
 ## Home Assistant sources
 
 - Core repo: https://github.com/home-assistant/core
+- Common strings reference: https://github.com/home-assistant/core/blob/dev/homeassistant/strings.json
 - Developer docs: https://developers.home-assistant.io/
 - Docs repo: https://github.com/home-assistant/home-assistant.io
 - Documentation guide: https://developers.home-assistant.io/docs/documenting/
@@ -49,6 +50,7 @@ Goal: get enough context fast, then act.
 - When unsure about HA concepts, lifecycle, entity modeling, config flows, diagnostics, repairs, or tests, inspect an existing Platinum integration first, then Gold if needed, and adapt its pattern instead of guessing.
 - Prefer fixing the backing library when the bug belongs there.
 - Preserve backing-library domain types at the HA boundary. If the library exposes a `Location`, `Device`, `Reading`, or similar model, use that type instead of `object`, `Any`, raw JSON dictionaries, or a parallel HA-only abstraction.
+- In `strings.json`, prefer Home Assistant common string references such as `[%key:common::config_flow::error::cannot_connect%]` whenever the wording matches instead of adding duplicate integration-local strings.
 - For entity descriptions, omit `translation_key` when the entity name is the same as its `device_class`; Home Assistant can use the device class translation as the fallback name.
 - Preserve user changes and unrelated dirty work.
 - Do not alter global tooling, global TLS settings, or Nix setup.
@@ -80,6 +82,7 @@ Current high-value checks:
 - Prefer examples from Platinum or Gold integrations when choosing patterns, especially when the local integration does not make the expected HA concept clear.
 - Do not add defensive checks for service/action fields already validated by HA schemas or entity filters.
 - Prefer direct dict key access when validation guarantees the key exists.
+- Prefer common string references in integration `strings.json` for standard labels, actions, config flow fields, abort reasons, and errors.
 - Omit redundant entity `translation_key` values when the entity's name matches its `device_class` fallback translation.
 
 If a potential Copilot concern remains, include it in the final summary before PR creation.
