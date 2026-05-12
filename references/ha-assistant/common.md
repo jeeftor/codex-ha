@@ -50,6 +50,7 @@ Goal: get enough context fast, then act.
 - When unsure about HA concepts, lifecycle, entity modeling, config flows, diagnostics, repairs, or tests, inspect an existing Platinum integration first, then Gold if needed, and adapt its pattern instead of guessing.
 - Prefer fixing the backing library when the bug belongs there.
 - Preserve backing-library domain types at the HA boundary. If the library exposes a `Location`, `Device`, `Reading`, or similar model, use that type instead of `object`, `Any`, raw JSON dictionaries, or a parallel HA-only abstraction.
+- For concurrent async work in Python 3.11+ code, prefer `asyncio.TaskGroup` over `asyncio.gather` for structured concurrency and predictable error handling, unless the existing local pattern or required result semantics make `gather` the better fit.
 - In `strings.json`, prefer Home Assistant common string references such as `[%key:common::config_flow::error::cannot_connect%]` whenever the wording matches instead of adding duplicate integration-local strings.
 - For entity descriptions, omit `translation_key` when the entity name is the same as its `device_class`; Home Assistant can use the device class translation as the fallback name.
 - Preserve user changes and unrelated dirty work.

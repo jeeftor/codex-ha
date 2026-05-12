@@ -41,7 +41,7 @@ If the diff or changelog link is unavailable, stop and ask for it or state the e
 
 1. Inspect git diff, changed files, commits, integration manifest requirements, and tests run.
 2. Identify integration domain(s), docs impact, breaking-change impact, dependency changes, and verification.
-3. Normalize filled-in verification commands for the PR body: replace local wrappers and machine-specific aliases such as `rtk` with repo-native commands a reviewer can run.
+3. Use verification results to judge readiness, but do not add a `Verification` section or list exact local commands in the PR body unless the user explicitly asks for it or the upstream template requires it.
 4. If local tests, lint, or commit hooks are failing, include that status and do not imply the PR is ready.
 5. Draft the PR by filling or appending to the HA template sections without deleting original template content:
    - Breaking change

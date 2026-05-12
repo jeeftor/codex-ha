@@ -24,11 +24,11 @@ Home Assistant Core PRs must select exactly one valid item from `.github/PULL_RE
 
 If multiple types appear valid, choose the dominant PR purpose or recommend splitting the PR.
 
-## Verification commands
+## Verification handling
 
-PR descriptions should show commands that reviewers can run in the repository. Do not include local wrapper commands or machine-specific aliases such as `rtk`.
+Use verification results to decide whether the PR is ready, but do not add a `Verification` section or list exact local commands in the PR body unless the user explicitly asks for it or the upstream template requires it.
 
-When a check was run through a local wrapper, report the repo-native command instead:
+If verification must be mentioned, keep it outcome-focused and avoid machine-specific setup details. When a check was run through a local wrapper, refer to the repo-native command instead of the local wrapper:
 
 - `rtk uv run pytest -q tests/components/openaq` -> `uv run pytest -q tests/components/openaq`
 - `rtk uv run python -m script.hassfest --integration-path homeassistant/components/openaq` -> `uv run python -m script.hassfest --integration-path homeassistant/components/openaq`
