@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA PR Update"
+  short_description: "Commit and push updates to open HA PRs"
+  default_prompt: "Use $ha-pr-update to commit and push my current Home Assistant changes to the existing open PR."

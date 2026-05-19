@@ -1,4 +1,4 @@
 interface:
   display_name: "HA Copilot Review"
   short_description: "Review HA changes against Copilot rules"
-  default_prompt: "Use $ha-copilot-review to check my Home Assistant Core branch against Copilot review instructions before PR creation."
+  default_prompt: "Use $ha-copilot-review to check my Home Assistant Core branch against Copilot review instructions before pushing or opening a PR."

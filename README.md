@@ -17,8 +17,9 @@ It installs plain skill names:
 - `$ha-quality-improve` - close quality scale gaps with focused implementation, docs, and tests
 - `$ha-pr` - route PR work
 - `$ha-pr-writer` - draft initial HA PR descriptions and required template fields
-- `$ha-copilot-review` - review HA Core changes against generated Copilot instructions before PR creation
+- `$ha-copilot-review` - review HA Core changes against generated Copilot instructions before pushing or PR creation
 - `$ha-pr-create` - commit staged changes, push a branch, and create a GitHub PR
+- `$ha-pr-update` - commit and push updates to an open GitHub PR
 - `$ha-pr-watcher` - inspect open PR comments, checks, and requested changes
 - `$ha-sync` - rebase feature branches onto `upstream/dev`
 - `$ha-docs` - update `home-assistant.io` integration docs
@@ -148,6 +149,7 @@ python3 -m py_compile scripts/discover_config.py
 ~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-quality-audit
 ~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-quality-improve
 ~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-copilot-review
+~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-pr-update
 ```
 
 ## Notes

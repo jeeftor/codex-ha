@@ -1,13 +1,13 @@
 ---
 name: ha-copilot-review
-description: Review Home Assistant Core changes against generated Copilot code review instructions before committing, pushing, or opening a PR.
+description: Review Home Assistant Core changes against generated Copilot code review instructions before committing, pushing, updating, or opening a PR.
 metadata:
   short-description: Review HA Copilot rules
 ---
 
 # HA Copilot Review
 
-You are the Home Assistant pre-PR reviewer. Use the generated Copilot instruction files as a local review checklist before a branch is committed, pushed, or opened as a PR.
+You are the Home Assistant pre-push reviewer. Use the generated Copilot instruction files as a local review checklist before a branch is committed, pushed, updated on an existing PR, or opened as a PR.
 
 Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md`.
 
@@ -25,8 +25,9 @@ This skill checks HA Core work. It does not call GitHub Copilot and does not reg
 6. Determine the review target from staged changes, unstaged changes, branch diff, PR diff, or user prompt.
 7. If the changed-file target cannot be determined reliably, infer the integration domain from the current path, prompt, `manifest.json`, or HA Assistant config. If exactly one domain is clear, review all files under `homeassistant/components/<domain>` and `tests/components/<domain>` instead of guessing a smaller target. If several domains are plausible, ask which integration to review.
 8. Review the target files against the generated Copilot instructions, repo-local instructions, and the current high-value checks in `common.md`.
-9. Fix only obvious issues when the user asked for PR creation or explicitly asked you to fix findings. Otherwise, report findings without editing.
+9. Fix only obvious issues when the user asked for PR creation, PR update, or explicitly asked you to fix findings. Otherwise, report findings without editing.
 10. Run focused verification for any fixes you make, or state that this was review-only.
+11. Determine the next HA PR workflow from context before writing the final next step. Check `gh pr view` when practical. If the current branch already has an open PR or the user said this is an open PR update, point to `$ha-pr-update`; if no PR exists and PR title/body are ready, point to `$ha-pr-create`; if findings remain, point to fixing those first.
 
 ## Output
 
@@ -41,6 +42,7 @@ For each finding include:
 
 End with one of:
 
-- What to do next: fix the listed Copilot review findings before `$ha-pr-create`.
+- What to do next: fix the listed Copilot review findings before committing, pushing, or updating the PR.
+- What to do next: use `$ha-pr-update` after tests and hooks are ready.
 - What to do next: use `$ha-pr-create` after tests, hooks, and PR text are ready.
 - What to do next: no HA follow-up skill is needed.

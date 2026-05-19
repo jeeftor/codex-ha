@@ -74,7 +74,7 @@ Before creating a branch, inspect the current branch and dirty state. Do not ren
 
 ## Copilot pre-review
 
-For HA Core changes, read `.github/copilot-instructions.md` before calling work PR-ready or before `$ha-pr-create` commits and pushes. Do a short self-review against those instructions and fix obvious issues first.
+For HA Core changes, read `.github/copilot-instructions.md` before calling work PR-ready or before `$ha-pr-create` or `$ha-pr-update` commits and pushes. Do a short self-review against those instructions and fix obvious issues first.
 
 Current high-value checks:
 
@@ -86,7 +86,7 @@ Current high-value checks:
 - Prefer common string references in integration `strings.json` for standard labels, actions, config flow fields, abort reasons, and errors.
 - Omit redundant entity `translation_key` values when the entity's name matches its `device_class` fallback translation.
 
-If a potential Copilot concern remains, include it in the final summary before PR creation.
+If a potential Copilot concern remains, include it in the final summary before PR creation or update.
 
 ## Parallel delegation
 
@@ -101,9 +101,9 @@ Good parallel tasks:
 - `$ha-library` in a separate backing-library repo when the HA Core change can proceed against a clear API contract.
 - `$ha-pr-watcher` investigation split between CI failures and review comments for an existing PR.
 
-Keep these local and serialized unless the user explicitly asks otherwise: branch renames, rebases, commits, pushes, release/tag publishing, and `$ha-pr-create`.
+Keep these local and serialized unless the user explicitly asks otherwise: branch renames, rebases, commits, pushes, release/tag publishing, `$ha-pr-create`, and `$ha-pr-update`.
 
-When subagents return, integrate their results before suggesting `$ha-pr-writer` or `$ha-pr-create`.
+When subagents return, integrate their results before suggesting `$ha-pr-writer`, `$ha-pr-create`, or `$ha-pr-update`.
 
 ## Verification
 
@@ -130,8 +130,9 @@ End every completed HA task with a `What to do next` section when there is a val
 - Before pushing commits for a new or existing HA Core PR, ask whether to run `$ha-copilot-review` when HA Core files changed.
 - Use `$ha-pr-writer` only when tests, lint, and hooks are passing or the remaining failures are explicitly documented.
 - Use `$ha-pr-create` after `$ha-pr-writer` when staged changes and PR text are ready to commit, push, and open.
+- Use `$ha-pr-update` when an existing PR branch has ready local updates to commit and push.
 - Use `$ha-pr-watcher` after a PR exists and needs CI, comments, or review follow-up.
 
-For `$ha-pr-writer`, the usual next step is `$ha-pr-create`. After `$ha-pr-create` opens the PR, use `$ha-pr-watcher`.
+For `$ha-pr-writer`, the usual next step is `$ha-pr-create`. After `$ha-pr-create` opens the PR or `$ha-pr-update` pushes an existing PR branch, use `$ha-pr-watcher`.
 
 Do not suggest every skill. Recommend the smallest useful next step. If there is no valid follow-up, write `What to do next: no HA follow-up skill is needed.`

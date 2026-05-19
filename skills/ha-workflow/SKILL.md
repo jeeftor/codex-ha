@@ -24,6 +24,7 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md`, `${CODEX_H
 - PR coordination: `$ha-pr`
 - Initial PR writing: `$ha-pr-writer`
 - PR creation from a ready branch: `$ha-pr-create`
+- Existing PR updates from a ready branch: `$ha-pr-update`
 - Open PR monitoring, comments, or CI: `$ha-pr-watcher`
 - Branch update/rebase: `$ha-sync`
 - End-user docs: `$ha-docs`
