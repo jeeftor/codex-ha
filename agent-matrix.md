@@ -5,14 +5,18 @@ This Mermaid diagram shows the current routing hierarchy for the HA skill bundle
 Solid edges are primary routing relationships. Dashed edges are direct workflow shortcuts or cross-workflow follow-ups documented in the skills.
 
 ```mermaid
-flowchart TD
-  WORKFLOW["$ha-workflow<br/>Route HA maintainer work"]
+flowchart LR
+  subgraph Workflow
+    WORKFLOW["$ha-workflow<br/>Route HA maintainer work"]
+  end
 
   subgraph Setup
+    direction TB
     INIT["$ha-init<br/>Discover and configure local repos"]
   end
 
   subgraph Implementation
+    direction TB
     INTEGRATION["$ha-integration<br/>Maintain HA Core integrations"]
     LIBRARY["$ha-library<br/>Maintain backing Python libraries"]
     FEATURE["$ha-feature<br/>Add integration features"]
@@ -24,12 +28,14 @@ flowchart TD
   end
 
   subgraph Quality
+    direction TB
     QUALITY["$ha-quality<br/>Route quality scale work"]
     QUALITY_AUDIT["$ha-quality-audit<br/>Audit quality scale evidence"]
     QUALITY_IMPROVE["$ha-quality-improve<br/>Close quality scale gaps"]
   end
 
   subgraph PullRequests["Pull Requests"]
+    direction TB
     PR["$ha-pr<br/>Route PR work"]
     PR_WRITER["$ha-pr-writer<br/>Draft HA PR descriptions"]
     COPILOT["$ha-copilot-review<br/>Review against Copilot instructions"]
