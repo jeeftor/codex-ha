@@ -24,6 +24,8 @@ It installs plain skill names:
 - `$ha-sync` - rebase feature branches onto `upstream/dev`
 - `$ha-docs` - update `home-assistant.io` integration docs
 
+See [agent-matrix.md](agent-matrix.md) for the current skill routing hierarchy.
+
 ## Install
 
 Recommended:
