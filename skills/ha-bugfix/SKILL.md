@@ -20,4 +20,14 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md`.
 5. Run the smallest relevant verification.
 6. If the issue appears environment-specific or Nix-related, report evidence before changing setup.
 
+## Delegation
+
+Only when the user explicitly asks for subagents, delegation, or parallel work, split investigation by independent evidence:
+
+- Reproduction and failing test in HA Core.
+- Backing-library root cause in the library repo.
+- Docs or release-note impact in the docs repo.
+
+Do not split speculative fixes across agents until ownership is clear.
+
 Do not mask library errors in HA Core when the library should expose a better API or exception.

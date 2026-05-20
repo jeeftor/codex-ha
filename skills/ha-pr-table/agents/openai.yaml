@@ -1,0 +1,4 @@
+interface:
+  display_name: "HA PR Table"
+  short_description: "Summarize open HA PRs in a prioritized table."
+  default_prompt: "Summarize my open Home Assistant Core pull requests in a prioritized table."

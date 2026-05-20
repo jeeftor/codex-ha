@@ -21,4 +21,14 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md` and `${CODE
 6. Add or update focused tests when behavior changes.
 7. Run targeted verification or state why it could not run.
 
+## Delegation
+
+Only when the user explicitly asks for subagents, delegation, or parallel work, delegate independent slices with disjoint ownership:
+
+- `$ha-library` for backing-library changes in the library repo.
+- `$ha-tests` or `$ha-coverage` for tests under `tests/components/<domain>`.
+- `$ha-docs` for docs repo updates.
+
+Keep config entries, entity behavior, and shared integration helpers in one owner unless the file boundaries are clear.
+
 Ask before editing a backing library if multiple candidate repos match the requirement.

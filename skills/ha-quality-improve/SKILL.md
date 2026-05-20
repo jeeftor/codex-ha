@@ -34,4 +34,15 @@ Use the Home Assistant quality scale docs as the source of truth:
 8. Run repo-native verification for changed code, docs, tests, or hassfest metadata. If verification is unavailable, state the blocker.
 9. End with a PR-ready checklist showing rule status and evidence paths suitable for the Home Assistant PR description.
 
+## Delegation
+
+Only when the user explicitly asks for subagents, delegation, or parallel work, split quality work after the audit has identified concrete gaps:
+
+- `$ha-tests` or `$ha-coverage` for rule gaps proved by tests.
+- `$ha-docs` for documentation rules in the docs repo.
+- `$ha-library` for library API/session/error support.
+- `$ha-integration` for HA Core implementation gaps.
+
+Give each subagent a rule group, target files or repo, and required evidence path. Keep `quality_scale.yaml`, `manifest.json` quality scale, and hassfest metadata updates in the main agent so final tier state is consistent.
+
 If the work grows beyond a small tier step, pause and report the remaining gaps instead of turning the change into a broad refactor.

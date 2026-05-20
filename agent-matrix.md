@@ -43,6 +43,7 @@ flowchart LR
     COPILOT["$ha-copilot-review<br/>Review against Copilot instructions"]
     PR_CREATE["$ha-pr-create<br/>Create draft PRs"]
     PR_UPDATE["$ha-pr-update<br/>Update existing PRs"]
+    PR_TABLE["$ha-pr-table<br/>Prioritize open PRs"]
     PR_WATCHER["$ha-pr-watcher<br/>Watch CI, comments, and reviews"]
   end
 
@@ -65,6 +66,7 @@ flowchart LR
   PR --> COPILOT
   PR --> PR_CREATE
   PR --> PR_UPDATE
+  PR --> PR_TABLE
   PR --> PR_WATCHER
 ```
 
@@ -100,12 +102,14 @@ flowchart LR
     COPILOT["$ha-copilot-review<br/>Review against Copilot instructions"]
     PR_CREATE["$ha-pr-create<br/>Create draft PRs"]
     PR_UPDATE["$ha-pr-update<br/>Update existing PRs"]
+    PR_TABLE["$ha-pr-table<br/>Prioritize open PRs"]
     PR_WATCHER["$ha-pr-watcher<br/>Watch CI, comments, and reviews"]
   end
 
   WORKFLOW -. "direct PR shortcuts" .-> PR_WRITER
   WORKFLOW -. "direct PR shortcuts" .-> PR_CREATE
   WORKFLOW -. "direct PR shortcuts" .-> PR_UPDATE
+  WORKFLOW -. "direct PR shortcuts" .-> PR_TABLE
   WORKFLOW -. "direct PR shortcuts" .-> PR_WATCHER
 
   QUALITY -. "narrow test gaps" .-> TESTS
@@ -132,6 +136,7 @@ flowchart LR
   PR_WRITER -. "ready branch" .-> PR_CREATE
   PR_CREATE -. "after PR opens" .-> PR_WATCHER
   PR_UPDATE -. "after push" .-> PR_WATCHER
+  PR_TABLE -. "selected PR" .-> PR_WATCHER
   COPILOT -. "ready new PR" .-> PR_CREATE
   COPILOT -. "ready existing PR" .-> PR_UPDATE
 ```

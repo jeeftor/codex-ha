@@ -22,4 +22,14 @@ Read `${CODEX_HOME:-$HOME/.codex}/ha-assistant/references/common.md`.
 7. Run targeted verification and repo hooks when practical; if hooks fail, report the failing hook before suggesting PR work.
 8. End with the relevant next skill: `$ha-tests`, `$ha-coverage`, `$ha-docs`, `$ha-library`, `$ha-sync`, `$ha-pr-writer`, or no follow-up.
 
+## Delegation
+
+Only when the user explicitly asks for subagents, delegation, or parallel work, split by ownership:
+
+- `$ha-library` for backing-library API changes in a separate repo or worktree.
+- `$ha-tests` for focused test coverage in `tests/components/<domain>`.
+- `$ha-docs` for matching end-user documentation in the docs repo.
+
+Keep HA Core implementation ownership in the main agent unless it is a separate file group with a clear contract.
+
 Avoid broad quality-scale upgrades unless required for the feature.

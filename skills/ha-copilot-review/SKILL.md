@@ -29,6 +29,12 @@ This skill checks HA Core work. It does not call GitHub Copilot and does not reg
 10. Run focused verification for any fixes you make, or state that this was review-only.
 11. Determine the next HA PR workflow from context before writing the final next step. Check `gh pr view` when practical. If the current branch already has an open PR or the user said this is an open PR update, point to `$ha-pr-update`; if no PR exists and PR title/body are ready, point to `$ha-pr-create`; if findings remain, point to fixing those first.
 
+## Delegation
+
+Only when the user explicitly asks for subagents, delegation, or parallel work, split review by disjoint changed-file groups or integration domains. Ask each subagent for findings with file and line references, then merge and de-duplicate findings in the main agent.
+
+Keep any automatic fixes in the main agent unless a subagent owns a clearly disjoint file group. Do not delegate commits, pushes, or PR updates from this skill.
+
 ## Output
 
 Lead with findings, ordered by severity, using file and line references. If there are no findings, say that clearly and mention any remaining test risk.
