@@ -2,7 +2,10 @@
 set -eu
 
 CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
-SKILLS_DIR="$CODEX_HOME/skills"
+HA_CORE_REPO="${HA_CORE_REPO:-$HOME/devel/ha/core}"
+SKILLS_DIR="${SKILLS_DIR:-$HA_CORE_REPO/.agents/skills}"
+GLOBAL_SKILLS_DIR="${GLOBAL_SKILLS_DIR:-$HOME/.agents/skills}"
+LEGACY_SKILLS_DIR="$CODEX_HOME/skills"
 SHARED_DIR="$CODEX_HOME/ha-assistant"
 MANIFEST="$SHARED_DIR/installed-skills.txt"
 SKILLS="ha-init ha-workflow ha-integration ha-library ha-feature ha-bugfix ha-tests ha-coverage ha-quality ha-quality-audit ha-quality-improve ha-pr ha-pr-writer ha-pr-create ha-pr-update ha-pr-table ha-copilot-review ha-pr-watcher ha-sync ha-docs"
@@ -34,9 +37,19 @@ confirm_plan() {
   echo
   echo "Codex HA uninstall plan"
   echo
-  echo "Skill directories will be removed:"
+  echo "Repo-local skill directories will be removed:"
   for skill in $remove_skills; do
     echo "  $SKILLS_DIR/$skill"
+  done
+  echo
+  echo "Current global skill directories will also be removed if present:"
+  for skill in $remove_skills; do
+    echo "  $GLOBAL_SKILLS_DIR/$skill"
+  done
+  echo
+  echo "Legacy global skill directories will also be removed if present:"
+  for skill in $remove_skills; do
+    echo "  $LEGACY_SKILLS_DIR/$skill"
   done
   echo
   echo "Shared files will be removed:"
@@ -67,7 +80,17 @@ confirm_plan
 
 for skill in $remove_skills; do
   rm -rf "${SKILLS_DIR:?}/$skill"
-  echo "Removed $skill"
+  echo "Removed repo-local $skill"
+done
+
+for skill in $remove_skills; do
+  rm -rf "${GLOBAL_SKILLS_DIR:?}/$skill"
+  echo "Removed current global $skill"
+done
+
+for skill in $remove_skills; do
+  rm -rf "${LEGACY_SKILLS_DIR:?}/$skill"
+  echo "Removed legacy global $skill"
 done
 
 rm -rf "$SHARED_DIR/references" "$SHARED_DIR/scripts" "$MANIFEST"

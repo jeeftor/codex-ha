@@ -4,7 +4,10 @@ set -eu
 REPO="${REPO:-jeeftor/codex-ha}"
 REF="${REF:-master}"
 CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
-SKILLS_DIR="$CODEX_HOME/skills"
+HA_CORE_REPO="${HA_CORE_REPO:-$HOME/devel/ha/core}"
+SKILLS_DIR="${SKILLS_DIR:-$HA_CORE_REPO/.agents/skills}"
+GLOBAL_SKILLS_DIR="${GLOBAL_SKILLS_DIR:-$HOME/.agents/skills}"
+LEGACY_SKILLS_DIR="$CODEX_HOME/skills"
 SHARED_DIR="$CODEX_HOME/ha-assistant"
 MANIFEST="$SHARED_DIR/installed-skills.txt"
 SKILLS="ha-init ha-workflow ha-integration ha-library ha-feature ha-bugfix ha-tests ha-coverage ha-quality ha-quality-audit ha-quality-improve ha-pr ha-pr-writer ha-pr-create ha-pr-update ha-pr-table ha-copilot-review ha-pr-watcher ha-sync ha-docs"
@@ -12,6 +15,8 @@ SKILLS="ha-init ha-workflow ha-integration ha-library ha-feature ha-bugfix ha-te
 repo_dir=""
 tmp_dir=""
 installed_ha_skills=""
+legacy_ha_skills=""
+global_ha_skills=""
 
 cleanup() {
   if [ -n "$tmp_dir" ] && [ -d "$tmp_dir" ]; then
@@ -38,19 +43,59 @@ find_installed_ha_skills() {
   done
 }
 
+find_legacy_ha_skills() {
+  if [ ! -d "$LEGACY_SKILLS_DIR" ]; then
+    return
+  fi
+
+  for path in "$LEGACY_SKILLS_DIR"/ha-*; do
+    [ -d "$path" ] || continue
+    basename "$path"
+  done
+}
+
+find_global_ha_skills() {
+  if [ ! -d "$GLOBAL_SKILLS_DIR" ]; then
+    return
+  fi
+
+  for path in "$GLOBAL_SKILLS_DIR"/ha-*; do
+    [ -d "$path" ] || continue
+    basename "$path"
+  done
+}
+
 confirm_plan() {
   echo
   echo "Codex HA install/update plan"
   echo
-  echo "Skills will be copied to:"
+  echo "Skills will be copied to the HA Core repo-local skill directory:"
   for skill in $SKILLS; do
     echo "  $repo_dir/skills/$skill -> $SKILLS_DIR/$skill"
   done
   echo
-  echo "Existing HA skill directories will be removed before reinstall:"
+  echo "Existing repo-local HA skill directories will be removed before reinstall:"
   if [ -n "$installed_ha_skills" ]; then
     for skill in $installed_ha_skills; do
       echo "  $SKILLS_DIR/$skill"
+    done
+  else
+    echo "  (none)"
+  fi
+  echo
+  echo "Current global HA skill directories will be removed:"
+  if [ -n "$global_ha_skills" ]; then
+    for skill in $global_ha_skills; do
+      echo "  $GLOBAL_SKILLS_DIR/$skill"
+    done
+  else
+    echo "  (none)"
+  fi
+  echo
+  echo "Legacy global HA skill directories will be removed:"
+  if [ -n "$legacy_ha_skills" ]; then
+    for skill in $legacy_ha_skills; do
+      echo "  $LEGACY_SKILLS_DIR/$skill"
     done
   else
     echo "  (none)"
@@ -68,11 +113,7 @@ confirm_plan() {
     return
   fi
 
-  if [ -n "$installed_ha_skills" ]; then
-    printf "Existing HA skills are installed. Press Enter to remove and reinstall, or Ctrl-C to abort: "
-  else
-    printf "Press Enter to install, or Ctrl-C to abort: "
-  fi
+  printf "Press Enter to install repo-local HA skills and remove global HA skills, or Ctrl-C to abort: "
   read -r _answer
 }
 
@@ -96,6 +137,12 @@ if [ ! -d "$repo_dir/skills" ]; then
   exit 1
 fi
 
+if [ ! -d "$HA_CORE_REPO/.git" ]; then
+  echo "Could not find HA Core git repository at $HA_CORE_REPO" >&2
+  echo "Set HA_CORE_REPO to the target repository path." >&2
+  exit 1
+fi
+
 for skill in $SKILLS; do
   if [ ! -d "$repo_dir/skills/$skill" ]; then
     echo "Missing skill: $skill" >&2
@@ -104,6 +151,8 @@ for skill in $SKILLS; do
 done
 
 installed_ha_skills="$(find_installed_ha_skills)"
+global_ha_skills="$(find_global_ha_skills)"
+legacy_ha_skills="$(find_legacy_ha_skills)"
 
 confirm_plan
 
@@ -111,7 +160,17 @@ mkdir -p "$SKILLS_DIR" "$SHARED_DIR/references" "$SHARED_DIR/scripts"
 
 for skill in $installed_ha_skills; do
   rm -rf "${SKILLS_DIR:?}/$skill"
-  echo "Removed existing $skill"
+  echo "Removed existing repo-local $skill"
+done
+
+for skill in $global_ha_skills; do
+  rm -rf "${GLOBAL_SKILLS_DIR:?}/$skill"
+  echo "Removed current global $skill"
+done
+
+for skill in $legacy_ha_skills; do
+  rm -rf "${LEGACY_SKILLS_DIR:?}/$skill"
+  echo "Removed legacy global $skill"
 done
 
 for skill in $SKILLS; do
@@ -132,4 +191,4 @@ done > "$MANIFEST"
 echo
 echo "Installed Codex HA skills into $SKILLS_DIR"
 echo "Installed shared HA Assistant files into $SHARED_DIR"
-echo "Restart Codex to pick up new skills."
+echo "Restart Codex to pick up repo-local skill changes."

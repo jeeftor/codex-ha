@@ -27,24 +27,26 @@ It installs plain skill names:
 
 See [agent-matrix.md](agent-matrix.md) for the current skill routing hierarchy.
 
+Generic GitHub and GitLab workflow skills live separately at <https://github.com/jeeftor/gitSkills>. They are optional companion skills; this HA bundle remains self-contained for Home Assistant-specific work.
+
 ## Install
 
 Recommended:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/jeeftor/codex-ha/master/scripts/install.sh | sh
+./scripts/install.sh
 ```
 
-From a local checkout:
+From a remote checkout:
 
 ```bash
-./scripts/install.sh
+curl -fsSL https://raw.githubusercontent.com/jeeftor/codex-ha/master/scripts/install.sh | sh
 ```
 
 The installer copies skills to:
 
 ```text
-~/.codex/skills/
+~/devel/ha/core/.agents/skills/
 ```
 
 and shared HA Assistant references/scripts to:
@@ -60,10 +62,10 @@ Restart Codex after installation.
 Run the installer again to update an existing install:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/jeeftor/codex-ha/master/scripts/install.sh | sh
+./scripts/install.sh
 ```
 
-If `ha-*` skills are already installed, the installer shows the existing skill directories and asks before removing them. It then installs the current bundle from scratch and refreshes shared files. This makes updates a clean reinstall.
+If `ha-*` skills are already installed, the installer shows the existing repo-local skill directories and asks before removing them. It also removes legacy global HA skills from `~/.codex/skills/`, installs the current bundle into the HA Core repo, and refreshes shared files. This makes updates a clean reinstall.
 
 ## First Run
 
@@ -109,7 +111,7 @@ curl -fsSL https://raw.githubusercontent.com/jeeftor/codex-ha/master/scripts/uni
 
 ## Alternative Install
 
-Codex includes a `skill-installer` workflow that can install skills from GitHub into `$CODEX_HOME/skills`. That is good for one-off, self-contained skills.
+Codex includes a `skill-installer` workflow that can install skills from GitHub for local use. That is good for one-off, self-contained skills.
 
 This repo uses an install script because the HA skills share references and helper scripts under `~/.codex/ha-assistant`. Installing only one skill folder from GitHub would not install those shared files.
 
@@ -146,7 +148,10 @@ scripts/
 Validate before pushing:
 
 ```bash
+sh -n scripts/install.sh
+sh -n scripts/uninstall.sh
 python3 -m py_compile scripts/discover_config.py
+gh skill publish --dry-run
 ~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-workflow
 ~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-quality
 ~/.codex/codex-python ~/.codex/skills/.system/skill-creator/scripts/quick_validate.py skills/ha-quality-audit
